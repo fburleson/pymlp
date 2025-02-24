@@ -7,6 +7,8 @@ from ml.data.selection import split_features_labels
 from ml.data.selection import split_train_val
 from ml.data.selection import split_train_test
 from ml.data.selection import random_batch
+from ml.data.features import label_encoder
+from ml.data.features import minmax
 from ml.mlp.mlp import Layer, LayerGrad
 from ml.mlp.mlp import forward
 from ml.mlp.init import init_mlp
@@ -15,10 +17,6 @@ from ml.mlp.grad import grad_sigmoid
 from ml.mlp.optimize import grad_descent
 from ml.cost import bce
 from ml.metrics import accuracy_score
-
-
-def label_encoder(col: pd.Series) -> pd.Series:
-    return pd.factorize(col)[0]
 
 
 def minmax_norm(x):
@@ -155,12 +153,9 @@ def main():
     )
 
     #   Feature engineering
-    data[targets[0]] = label_encoder(data[targets[0]])
-    data[features] = data[features].apply(minmax_norm)
-    train_data, test_data = split_train_test(
-        data,
-        0.25,
-    )
+    data[targets] = label_encoder(data[targets])
+    data[features] = minmax(data[features])
+    train_data, test_data = split_train_test(data, 0.25)
 
     #   Split train test
     X_train, Y_train = split_features_labels(train_data, features, targets)
