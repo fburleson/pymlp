@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from ml.data.features import label_encoder
+from ml.data.features import label_encode
 
 
 @pytest.fixture
@@ -23,5 +23,5 @@ def test_label_encoder(data):
             [2, 2],
         ]
     )
-    encoded: np.ndarray = label_encoder(data)
+    encoded: np.ndarray = label_encode(data)
     assert np.array_equal(expected, encoded)
