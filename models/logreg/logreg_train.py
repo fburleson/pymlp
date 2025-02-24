@@ -1,13 +1,11 @@
 import sys
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 from ml.data.selection import split_features_labels
 from ml.data.selection import split_train_val
 from ml.data.selection import split_train_test
 from ml.data.selection import random_batch
-from ml.data.features import label_encoder
+from ml.data.features import label_encode
 from ml.data.features import minmax
 from ml.mlp.mlp import Layer, LayerGrad
 from ml.mlp.mlp import forward
@@ -17,30 +15,7 @@ from ml.mlp.grad import grad_sigmoid
 from ml.mlp.optimize import grad_descent
 from ml.cost import bce
 from ml.metrics import accuracy_score
-
-
-def minmax_norm(x):
-    return (x - x.min()) / (x.max() - x.min())
-
-
-def display_metrics(
-    epochs: int,
-    val_cost: np.array,
-    train_cost: np.array,
-    val_accuracies: np.array,
-    train_accuracies: np.array,
-):
-    x: list[int] = [i for i in range(epochs)]
-    sns.lineplot(x=x, y=val_cost, label="validation cost", color="red")
-    sns.lineplot(x=x, y=train_cost, label="train cost", color="green", linestyle="--")
-    sns.lineplot(x=x, y=val_accuracies, label="validation accuracy", color="blue")
-    sns.lineplot(
-        x=x, y=train_accuracies, label="train accuracy", color="orange", linestyle="--"
-    )
-    plt.xlabel("epoch")
-    plt.ylabel("binary cross entropy (cost)")
-    plt.title("logistic regression")
-    plt.show()
+from ml.metrics import display_metrics
 
 
 def train_logreg(
@@ -152,16 +127,16 @@ def main():
         pd.read_csv(sys.argv[1], index_col="Index").dropna().reset_index(drop=True)
     )
 
-    #   Feature engineering
-    data[targets] = label_encoder(data[targets])
+    #   feature engineering
+    data[targets] = label_encode(data[targets])
     data[features] = minmax(data[features])
     train_data, test_data = split_train_test(data, 0.25)
 
-    #   Split train test
+    #   split train test
     X_train, Y_train = split_features_labels(train_data, features, targets)
     X_test, Y_test = split_features_labels(test_data, features, targets)
 
-    #   Create and train model
+    #   create and train model
     logreg: list[Layer] = init_mlp(X_train.shape[1], [1], [sigmoid])
     logreg = train_ova_logreg(
         X_train,
@@ -172,7 +147,7 @@ def main():
         logreg_metrics=True,
     )
 
-    #   Test model
+    #   test model
     y_pred: np.ndarray = np.argmax(forward_ova(X_test, logreg), axis=0)
     print(f"test accuracy:\t{accuracy_score(y_pred, Y_test):.2%}")
 
