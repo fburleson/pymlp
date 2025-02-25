@@ -1,5 +1,5 @@
 # pymlp
-A simple library for creating and training fully connected neural networks, built from scratch using only numpy.
+A simple library for creating and training fully connected neural networks, built from scratch using only numpy (and pandas).
 
 ## Introduction
 This project was made to show my understanding of neural networks and machine learning models. It allows building different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use, but the API is not it's focus.
