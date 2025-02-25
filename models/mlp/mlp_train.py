@@ -105,6 +105,7 @@ def train_mlp(
         print("[multi layer perceptron]")
         print(f"epochs:\t\t{max_epochs}")
         print(f"features:\t{inputs.shape[1]}")
+        print(f"topology:\t{tuple([layer.weights.shape[0] for layer in mlp])}")
         print(f"cost:\t\t{val_costs[-1]:.8}")
         print(f"accuracy:\t{val_accuracies[-1]:.2%}")
         print(f"batch size:\t{batch_size} / {train_inputs.shape[0]}")
@@ -144,7 +145,7 @@ def main():
         mlp,
         max_epochs=2000,
         learning_rate=0.4,
-        batch_size=60,
+        batch_size=100,
         metrics=True,
         verbose=(sys.argv[-1] == "-v"),
     )
