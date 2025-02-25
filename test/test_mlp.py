@@ -28,7 +28,7 @@ def test_layer_forward_net_random(X):
             [np.dot(X[2], layer.weights[0]), np.dot(X[2], layer.weights[1])],
         ]
     )
-    Y_pred: np.ndarray = forward_layer(X, layer.weights, layer.biases)
+    Y_pred: np.ndarray = forward_layer(X, layer.weights, layer.biases)[1]
     assert np.allclose(Y_pred.astype(np.float64), Y_expected.astype(np.float64))
 
 
@@ -47,7 +47,7 @@ def test_layer_forward_net_const(X):
             [np.dot(X[2], weights[0]), np.dot(X[2], weights[1])],
         ]
     )
-    Y_pred: np.ndarray = forward_layer(X, weights, biases)
+    Y_pred: np.ndarray = forward_layer(X, weights, biases)[1]
     assert np.allclose(Y_pred.astype(np.float64), Y_expected.astype(np.float64))
 
 
@@ -60,7 +60,7 @@ def test_mlp(X):
             [np.dot(X[2], mlp[0].weights[0]), np.dot(X[2], mlp[0].weights[1])],
         ]
     )
-    Y_pred: np.ndarray = forward(X, mlp)
+    Y_pred: np.ndarray = forward(X, mlp)[-1][1]
     assert np.allclose(Y_pred.astype(np.float64), Y_expected.astype(np.float64))
 
 
@@ -80,5 +80,5 @@ def test_mlp_multi_layer(X):
             [np.dot(X_1[2], mlp[1].weights[0]), np.dot(X_1[2], mlp[1].weights[1])],
         ]
     )
-    Y_pred: np.ndarray = forward(X, mlp)
+    Y_pred: np.ndarray = forward(X, mlp)[-1][1]
     assert np.allclose(Y_pred.astype(np.float64), Y_expected.astype(np.float64))

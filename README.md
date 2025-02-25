@@ -1,8 +1,8 @@
 # pymlp
-A simple library for creating and training fully connected neural networks, built from scratch using only numpy (and pandas).
+A simple library for creating and training fully connected neural networks, built from scratch using only numpy (and minimal pandas).
 
 ## Introduction
-This project was made to show my understanding of neural networks and machine learning models. It allows building different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use, but the API is not it's focus.
+This project was mainly made to show my understanding of neural networks and machine learning models. It allows building different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use, but the API is not it's focus.
 
 ## Features
 - Fully connected neural network with configurable layers
@@ -11,6 +11,11 @@ This project was made to show my understanding of neural networks and machine le
 - Supports the following loss functions: binary cross entropy and cross entropy
 - Stochastic and mini-batch gradient descent
 - No external libraries (e.g. TensorFlow, PyTorch)
+
+##  Models
+The library includes the following machine learning models as examples implement using pymlp:
+-   Logistic regression multiclassifier (Ova)
+-   Multilayer perceptron multiclassifier (Softmax)
 
 ## Requirements
 - Python >= 3.10
@@ -21,6 +26,13 @@ git clone git@github.com:fburleson/pymlp.git pymlp
 cd pymlp
 python3 -m venv .venv
 source .venv/bin/activate 
-pip install .
+pip install -e .
 pytest
+```
+
+## Usage
+After [installation](Installation)
+```bash
+python3 run.py
+```
 

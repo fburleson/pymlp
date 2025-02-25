@@ -14,6 +14,7 @@ def layer() -> Layer:
         ),
         np.array([0]),
         None,
+        None,
     )
 
 
@@ -26,6 +27,7 @@ def gradients() -> LayerGrad:
             ]
         ),
         np.array([0.012]),
+        None,
     )
 
 

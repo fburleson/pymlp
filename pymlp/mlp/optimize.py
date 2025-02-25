@@ -11,7 +11,7 @@ def _grad_descent_layer(
 ) -> Layer:
     new_weights: np.ndarray = weights - grad_weights * learning_rate
     new_biases: np.ndarray = biases - grad_biases * learning_rate
-    return Layer(new_weights, new_biases, None)
+    return Layer(new_weights, new_biases, None, None)
 
 
 def grad_descent(
@@ -26,5 +26,7 @@ def grad_descent(
             gradients[i].biases,
             learning_rate,
         )
-        updated_mlp.append(Layer(new_layer.weights, new_layer.biases, layer.activation))
+        updated_mlp.append(
+            Layer(new_layer.weights, new_layer.biases, layer.activation, layer.dnet)
+        )
     return updated_mlp

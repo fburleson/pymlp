@@ -1,5 +1,15 @@
 import numpy as np
 from .mlp import Layer
+from .activations import sigmoid
+from .activations import softmax
+from .derivatives import dnet_sigmoid
+from .derivatives import dnet_softmax
+
+
+_mapatod: dict = {
+    sigmoid: dnet_sigmoid,
+    softmax: dnet_softmax,
+}
 
 
 def init_layer(
@@ -19,7 +29,7 @@ def init_layer(
         weights: np.ndarray = np.random.rand(n_neurons, n_inputs)
     else:
         weights: np.ndarray = np.full((n_neurons, n_inputs), weights)
-    return Layer(weights, biases, activation)
+    return Layer(weights, biases, activation, _mapatod[activation])
 
 
 def init_mlp(
