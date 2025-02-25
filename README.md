@@ -7,7 +7,7 @@ This project was made to show my understanding of neural networks and machine le
 ## Features
 - Fully connected neural network with configurable layers
 - Forward and backward propagation implemented using numpy
-- Supports the following activations functions: sigmoid and softmax
+- Supports the following activations functions: sigmoid, relu and softmax
 - Supports the following loss functions: binary cross entropy and cross entropy
 - Stochastic and mini-batch gradient descent
 - No external libraries (e.g. TensorFlow, PyTorch)
