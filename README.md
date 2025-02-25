@@ -1,3 +1,4 @@
+![Numpy Logo](https://github.com/numpy/numpy/blob/main/branding/logo/logomark/numpylogoicon.png)
 # pymlp
 A simple library for creating and training fully connected neural networks, built from scratch using only numpy (and minimal pandas).
 
