@@ -13,7 +13,7 @@ This project was mainly made to show my understanding of neural networks and mac
 - No external libraries (e.g. TensorFlow, PyTorch)
 
 ##  Models
-The library includes the following machine learning models, implemented using pymlp:
+This repo includes the following machine learning models as examples, implemented using pymlp:
 -   Logistic regression multiclassifier (Ova)
 -   Multilayer perceptron multiclassifier (Softmax)
 
