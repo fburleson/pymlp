@@ -3,6 +3,5 @@ __pycache__
 *.egg-info
 datasets
 datasets/*.csv
-_*
 build/
 todo.md
