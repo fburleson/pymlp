@@ -31,7 +31,6 @@ pytest
 ```
 
 ## Usage
-After [installation](Installation)
 ```bash
 python3 run.py
 ```
