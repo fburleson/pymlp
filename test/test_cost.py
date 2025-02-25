@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from ml.cost import bce
+from pymlp.cost import bce
 
 
 @pytest.fixture

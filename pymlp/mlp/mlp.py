@@ -1,12 +1,16 @@
 import numpy as np
 from collections import namedtuple
+from .activations import linear
 
 Layer = namedtuple("Layer", ["weights", "biases", "activation"])
 LayerGrad = namedtuple("Grad", ["weights", "biases"])
 
 
 def forward_layer(
-    inputs: np.ndarray, weights: np.ndarray, biases: np.array, activation: callable
+    inputs: np.ndarray,
+    weights: np.ndarray,
+    biases: np.array,
+    activation: callable = linear,
 ) -> np.ndarray:
     return activation(np.dot(inputs, weights.T) + biases)
 

@@ -1,5 +1,5 @@
 import numpy as np
-from ml.mlp.mlp import LayerGrad
+from .mlp import LayerGrad
 
 
 def grad_sigmoid(

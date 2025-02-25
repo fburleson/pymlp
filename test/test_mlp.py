@@ -1,11 +1,11 @@
 import pytest
 import numpy as np
-from ml.mlp.mlp import Layer
-from ml.mlp.mlp import forward_layer
-from ml.mlp.mlp import forward
-from ml.mlp.init import init_layer
-from ml.mlp.init import init_mlp
-from ml.mlp.activations import linear
+from pymlp.mlp.mlp import Layer
+from pymlp.mlp.mlp import forward_layer
+from pymlp.mlp.mlp import forward
+from pymlp.mlp.init import init_layer
+from pymlp.mlp.init import init_mlp
+from pymlp.mlp.activations import linear
 
 
 @pytest.fixture
@@ -28,7 +28,7 @@ def test_layer_forward_net_random(X):
             [np.dot(X[2], layer.weights[0]), np.dot(X[2], layer.weights[1])],
         ]
     )
-    Y_pred: np.ndarray = forward_layer(X, layer.weights, layer.biases, linear)
+    Y_pred: np.ndarray = forward_layer(X, layer.weights, layer.biases)
     assert np.allclose(Y_pred.astype(np.float64), Y_expected.astype(np.float64))
 
 
@@ -47,7 +47,7 @@ def test_layer_forward_net_const(X):
             [np.dot(X[2], weights[0]), np.dot(X[2], weights[1])],
         ]
     )
-    Y_pred: np.ndarray = forward_layer(X, weights, biases, linear)
+    Y_pred: np.ndarray = forward_layer(X, weights, biases)
     assert np.allclose(Y_pred.astype(np.float64), Y_expected.astype(np.float64))
 
 

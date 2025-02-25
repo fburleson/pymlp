@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from ml.data.features import label_encode
+from pymlp.data.features import label_encode
 
 
 @pytest.fixture

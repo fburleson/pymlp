@@ -1,21 +1,21 @@
 import sys
 import pandas as pd
 import numpy as np
-from ml.data.selection import split_features_labels
-from ml.data.selection import split_train_val
-from ml.data.selection import split_train_test
-from ml.data.selection import random_batch
-from ml.data.features import label_encode
-from ml.data.features import minmax
-from ml.mlp.mlp import Layer, LayerGrad
-from ml.mlp.mlp import forward
-from ml.mlp.init import init_mlp
-from ml.mlp.activations import sigmoid
-from ml.mlp.grad import grad_sigmoid
-from ml.mlp.optimize import grad_descent
-from ml.cost import bce
-from ml.metrics import accuracy_score
-from ml.metrics import display_metrics
+from pymlp.data.selection import split_features_labels
+from pymlp.data.selection import split_train_val
+from pymlp.data.selection import split_train_test
+from pymlp.data.selection import random_batch
+from pymlp.data.features import label_encode
+from pymlp.data.features import minmax
+from pymlp.mlp.mlp import Layer, LayerGrad
+from pymlp.mlp.mlp import forward
+from pymlp.mlp.init import init_mlp
+from pymlp.mlp.activations import sigmoid
+from pymlp.mlp.grad import grad_sigmoid
+from pymlp.mlp.optimize import grad_descent
+from pymlp.cost import bce
+from pymlp.metrics import accuracy_score
+from pymlp.metrics import display_metrics
 
 
 def train_logreg(
@@ -130,9 +130,9 @@ def main():
     #   feature engineering
     data[targets] = label_encode(data[targets])
     data[features] = minmax(data[features])
-    train_data, test_data = split_train_test(data, 0.25)
 
-    #   split train test
+    #   split train test features labels
+    train_data, test_data = split_train_test(data, 0.25)
     X_train, Y_train = split_features_labels(train_data, features, targets)
     X_test, Y_test = split_features_labels(test_data, features, targets)
 

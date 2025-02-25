@@ -22,6 +22,6 @@ def display_metrics(
         x=x, y=train_accuracies, label="train accuracy", color="orange", linestyle="--"
     )
     plt.xlabel("epoch")
-    plt.ylabel("binary cross entropy (cost)")
+    plt.ylabel("cost")
     plt.title("logistic regression")
     plt.show()

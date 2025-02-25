@@ -1,5 +1,5 @@
 import numpy as np
-from ml.metrics import accuracy_score
+from pymlp.metrics import accuracy_score
 
 
 def test_accuracy_score():

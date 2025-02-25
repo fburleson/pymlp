@@ -1,5 +1,5 @@
 import numpy as np
-from ml.mlp.mlp import Layer, LayerGrad
+from .mlp import Layer, LayerGrad
 
 
 def _grad_descent_layer(

@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
-from ml.mlp.mlp import LayerGrad, Layer
-from ml.mlp.optimize import grad_descent
+from pymlp.mlp.mlp import LayerGrad, Layer
+from pymlp.mlp.optimize import grad_descent
 
 
 @pytest.fixture
