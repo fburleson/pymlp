@@ -1,7 +1,5 @@
 __pycache__
 .venv
 *.egg-info
-datasets
-datasets/*.csv
 build/
 todo.md
