@@ -11,6 +11,7 @@ This project was mainly made to show my understanding of neural networks and mac
 - Supports the following loss functions: binary cross entropy and cross entropy
 - Stochastic and mini-batch gradient descent
 - No external libraries (e.g. TensorFlow, PyTorch)
+- Visualizing basic metrics
 
 ##  Models
 This repo includes the following machine learning models as examples, implemented using pymlp:
