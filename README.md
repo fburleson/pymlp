@@ -13,6 +13,8 @@ This project was made to show my understanding of neural networks and machine le
 - No external libraries (e.g. TensorFlow, PyTorch)
 
 ## Installation
+```bash
 git clone git@github.com:fburleson/pymlp.git pymlp
 cd pymlp
 pip install .
+
