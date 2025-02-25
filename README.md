@@ -12,6 +12,9 @@ This project was made to show my understanding of neural networks and machine le
 - Stochastic and mini-batch gradient descent
 - No external libraries (e.g. TensorFlow, PyTorch)
 
+## Requirements
+- Python >= 3.10
+
 ## Installation
 ```bash
 git clone git@github.com:fburleson/pymlp.git pymlp
