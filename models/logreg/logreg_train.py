@@ -149,9 +149,10 @@ def main():
         Y_train,
         len(features),
         max_epochs=1000,
-        batch_size=1,
         learning_rate=0.4,
+        batch_size=1,
         logreg_metrics=True,
+        verbose=(sys.argv[-1] == "-v"),
     )
 
     #   test model

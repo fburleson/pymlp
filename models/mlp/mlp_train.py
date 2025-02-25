@@ -144,8 +144,9 @@ def main():
         mlp,
         max_epochs=2000,
         learning_rate=0.4,
-        batch_size=100,
+        batch_size=60,
         metrics=True,
+        verbose=(sys.argv[-1] == "-v"),
     )
 
     #   test model

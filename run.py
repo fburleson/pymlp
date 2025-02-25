@@ -8,11 +8,16 @@ def main():
     }
     is_exit = "n"
     while is_exit != "y":
-        cmd: str = input(f"choose a model to run {tuple(models.keys())}: ")
+        args: list[str] = input(
+            f"choose a model to run (-v for verbose) {tuple(models.keys())}: "
+        ).split()
         try:
-            subprocess.run(["python3", *models[cmd]])
+            cmd: list[str] = ["python3", *models[args[0]], ""]
+            if len(args) >= 2:
+                cmd[-1] = args[args.index("-v")] if "-v" in args else ""
+            subprocess.run(cmd)
         except KeyError:
-            print(f"{cmd} is not a valid model")
+            print(f"{args[0]} is invalid input")
         is_exit: str = input("exit? (y/n): ")
 
 
