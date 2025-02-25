@@ -2,7 +2,7 @@
 A simple library for creating and training fully connected neural networks, built from scratch using only numpy.
 
 ## Introduction
-This project was mainly made to show my understanding of neural networks and machine learning models. It allows building different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use, though that is not it's focus.
+This project was made to show my understanding of neural networks and machine learning models. It allows building different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use.
 
 ## Features
 - Fully connected neural network with configurable layers
