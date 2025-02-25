@@ -19,5 +19,7 @@ This project was made to show my understanding of neural networks and machine le
 ```bash
 git clone git@github.com:fburleson/pymlp.git pymlp
 cd pymlp
+python3 -m venv .venv
+source .venv/bin/activate 
 pip install .
 
