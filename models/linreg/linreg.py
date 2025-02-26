@@ -81,7 +81,7 @@ def main():
         return
     features: list[str] = ["km"]
     targets: list[str] = ["price"]
-    data: pd.DataFrame = pd.read_csv(sys.argv[1])
+    data: pd.DataFrame = pd.read_csv(sys.argv[1]).sample(frac=1).reset_index(drop=True)
 
     #   split train test features labels
     train_data, test_data = split_train_test(data, 0.1)
