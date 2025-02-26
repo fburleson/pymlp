@@ -99,7 +99,7 @@ def main():
         max_epochs=200,
         learning_rate=0.1,
         metrics=True,
-        verbose=(sys.argv[-1] == "-v"),
+        verbose=("-v" in sys.argv[-1]),
     )
 
     #   test model

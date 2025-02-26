@@ -148,7 +148,7 @@ def main():
         learning_rate=0.4,
         batch_size=100,
         metrics=True,
-        verbose=(sys.argv[-1] == "-v"),
+        verbose=("-v" in sys.argv[-1]),
     )
 
     #   test model
