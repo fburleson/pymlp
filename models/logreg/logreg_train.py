@@ -131,7 +131,10 @@ def main():
     features: list[str] = ["Astronomy", "Herbology", "Charms", "Flying"]
     targets: list[str] = ["Hogwarts House"]
     data: pd.DataFrame = (
-        pd.read_csv(sys.argv[1], index_col="Index").dropna().reset_index(drop=True)
+        pd.read_csv(sys.argv[1], index_col="Index")
+        .sample(frac=1)
+        .dropna()
+        .reset_index(drop=True)
     )
 
     #   feature engineering

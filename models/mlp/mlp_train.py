@@ -41,7 +41,7 @@ def preprocess(file: str, features: list[str], targets: list[str]):
         for category in feature_categories
         for feature in features
     ]
-    return pd.read_csv(file, names=columns)
+    return pd.read_csv(file, names=columns).sample(frac=1).reset_index(drop=True)
 
 
 def train_mlp(
@@ -131,7 +131,6 @@ def main():
     train_data, test_data = split_train_test(data, 0.2)
     train_data[features] = minmax(train_data[features])
     test_data[features] = minmax(test_data[features])
-    print((train_data[targets] == [0, 1]).value_counts())
     X_train, Y_train = split_features_labels(train_data, features, targets)
     X_test, Y_test = split_features_labels(test_data, features, targets)
 
