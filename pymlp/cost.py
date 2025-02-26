@@ -13,3 +13,7 @@ def ce(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     y_pred: np.ndarray = np.clip(y_pred, epsilon, 1 - epsilon)
     loss: np.array = np.sum(y_true * np.log(y_pred), axis=1)
     return -np.mean(loss)
+
+
+def mse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    return np.mean(np.square(y_true - y_pred))

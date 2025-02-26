@@ -3,6 +3,7 @@ import subprocess
 
 def main():
     models: dict = {
+        "linreg": ["models/linreg/linreg.py", "datasets/cars.csv"],
         "logreg": ["models/logreg/logreg_train.py", "datasets/hogwarts.csv"],
         "mlp": ["models/mlp/mlp_train.py", "datasets/cancer.csv"],
     }

@@ -2,13 +2,16 @@ import numpy as np
 from .mlp import Layer
 from .activations import sigmoid
 from .activations import softmax
+from .activations import linear
 from .derivatives import dnet_sigmoid
 from .derivatives import dnet_softmax
+from .derivatives import dnet_linear
 
 
 _mapatod: dict = {
     sigmoid: dnet_sigmoid,
     softmax: dnet_softmax,
+    linear: dnet_linear,
 }
 
 

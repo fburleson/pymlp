@@ -16,7 +16,7 @@ from pymlp.mlp.derivatives import dbce
 from pymlp.mlp.optimize import grad_descent
 from pymlp.cost import bce
 from pymlp.metrics import accuracy_score
-from pymlp.metrics import display_metrics
+from pymlp.metrics import display_classif_metrics
 
 
 def train_logreg(
@@ -84,7 +84,7 @@ def train_logreg(
         print(f"accuracy:\t{val_accuracies[-1]:.2%}")
         print(f"batch size:\t{batch_size} / {train_inputs.shape[0]}")
     if metrics:
-        display_metrics(
+        display_classif_metrics(
             max_epochs, val_costs, train_costs, val_accuracies, train_accuracies
         )
     return logreg

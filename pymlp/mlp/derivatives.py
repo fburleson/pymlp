@@ -22,6 +22,10 @@ def dnet_softmax(z: np.ndarray, y: np.ndarray, dy: np.ndarray) -> np.ndarray:
     return dnet
 
 
+def dnet_linear(z: np.ndarray, y: np.ndarray, dy: np.ndarray) -> np.ndarray:
+    return dy
+
+
 def dbce(y_pred: np.ndarray, y_true: np.ndarray) -> np.ndarray:
     epsilon: float = 1e-15
     y_pred: np.ndarray = np.clip(y_pred, epsilon, 1 - epsilon)
@@ -30,3 +34,7 @@ def dbce(y_pred: np.ndarray, y_true: np.ndarray) -> np.ndarray:
 
 def dce(y_pred: np.ndarray, y_true: np.ndarray) -> np.ndarray:
     return -(y_true / y_pred)
+
+
+def dmse(y_pred: np.ndarray, y_true: np.ndarray) -> np.ndarray:
+    return -2 * (y_true - y_pred)
