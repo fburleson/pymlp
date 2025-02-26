@@ -1,4 +1,5 @@
 import subprocess
+import pandas as pd
 
 
 def main():
@@ -19,15 +20,22 @@ def main():
     is_exit = "n"
     while is_exit != "y":
         args: list[str] = input(
-            f"choose a model to run (-h to see options) {tuple(models.keys())}: "
+            f'choose a model to run (type "help" to see options) {tuple(models.keys())}: '
         ).split()
         try:
-            if "-h" in args:
-                print("-v\trun in verbose mode")
+            if len(args) == 0:
+                continue
+            if "help" in args:
+                print("-v\tto run in verbose mode")
                 print("-d\tto see the description of a model")
+                print("-i\tto inspect the raw data")
                 continue
             if "-d" in args:
-                print(models[args[0]][1], end="\n\n")
+                print(models[args[0]][1])
+                print(f"(./{models[args[0]][0][1]})", end="\n\n")
+                continue
+            if "-i" in args:
+                print(pd.read_csv(models[args[0]][0][1]).reset_index(drop=True).head())
                 continue
             cmd: list[str] = ["python3", *models[args[0]][0]]
             cmd.append("-v") if "-v" in args else ""
