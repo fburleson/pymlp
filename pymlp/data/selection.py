@@ -4,8 +4,8 @@ import numpy as np
 
 def split_train_test(data: pd.DataFrame, test_percentage: float):
     cutoff: int = int(data.shape[0] * test_percentage)
-    train: pd.DataFrame = data.iloc[cutoff:]
-    test: pd.DataFrame = data.iloc[:cutoff]
+    train: pd.DataFrame = data.iloc[cutoff:].reset_index(drop=True)
+    test: pd.DataFrame = data.iloc[:cutoff].reset_index(drop=True)
     return train, test
 
 

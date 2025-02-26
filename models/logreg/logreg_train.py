@@ -136,10 +136,10 @@ def main():
 
     #   feature engineering
     data[targets] = label_encode(data[targets])
-    data[features] = minmax(data[features])
 
-    #   split train test features labels
     train_data, test_data = split_train_test(data, 0.25)
+    train_data[features] = minmax(train_data[features])
+    test_data[features] = minmax(test_data[features])
     X_train, Y_train = split_features_labels(train_data, features, targets)
     X_test, Y_test = split_features_labels(test_data, features, targets)
 
