@@ -91,12 +91,12 @@ def main():
     X_test, Y_test = split_features_labels(test_data, features, targets)
 
     #   create and train model
-    linreg: list[Layer] = init_mlp(X_train.shape[1], [1], [linear], weights=0)
+    linreg: list[Layer] = init_mlp(X_train.shape[1], [1], [linear])
     linreg = train_linreg(
         X_train,
         Y_train,
         linreg,
-        max_epochs=40,
+        max_epochs=10000,
         learning_rate=0.01,
         metrics=True,
         verbose=(sys.argv[-1] == "-v"),
@@ -105,6 +105,14 @@ def main():
     #   test model
     y_pred: np.ndarray = forward(X_test, linreg)[-1][1]
     print(f"test cost:\t{mse(y_pred, Y_test):.8}")
+    sns.scatterplot(
+        x=np.squeeze(minmax(train_data[features])), y=train_data[targets[0]]
+    )
+    sns.scatterplot(x=np.squeeze(minmax(test_data[features])), y=test_data[targets[0]])
+    x = np.linspace(0, 1, 400)
+    sns.lineplot(x=x, y=np.squeeze(forward(x[:, np.newaxis], linreg)[-1][1]))
+    plt.title("fit on all data")
+    plt.show()
 
 
 if __name__ == "__main__":
