@@ -96,8 +96,8 @@ def main():
         X_train,
         Y_train,
         linreg,
-        max_epochs=10000,
-        learning_rate=0.01,
+        max_epochs=200,
+        learning_rate=0.1,
         metrics=True,
         verbose=(sys.argv[-1] == "-v"),
     )
@@ -106,12 +106,18 @@ def main():
     y_pred: np.ndarray = forward(X_test, linreg)[-1][1]
     print(f"test cost:\t{mse(y_pred, Y_test):.8}")
     sns.scatterplot(
-        x=np.squeeze(minmax(train_data[features])), y=train_data[targets[0]]
+        x=np.squeeze(minmax(train_data[features])),
+        y=train_data[targets[0]],
+        label="train",
     )
-    sns.scatterplot(x=np.squeeze(minmax(test_data[features])), y=test_data[targets[0]])
+    sns.scatterplot(
+        x=np.squeeze(minmax(test_data[features])),
+        y=test_data[targets[0]],
+        label="test",
+    )
     x = np.linspace(0, 1, 400)
     sns.lineplot(x=x, y=np.squeeze(forward(x[:, np.newaxis], linreg)[-1][1]))
-    plt.title("fit on all data")
+    plt.title("linear regression")
     plt.show()
 
 
