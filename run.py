@@ -39,6 +39,7 @@ def main():
                 continue
             cmd: list[str] = ["python3", *models[args[0]][0]]
             cmd.append("-v") if "-v" in args else ""
+            print(f"Training {args[0]}...")
             subprocess.run(cmd)
         except KeyError:
             print(f"{args[0]} is invalid input")
