@@ -106,12 +106,12 @@ def main():
     y_pred: np.ndarray = forward(X_test, linreg)[-1][1]
     print(f"test cost:\t{mse(y_pred, Y_test):.8}")
     sns.scatterplot(
-        x=np.squeeze(minmax(train_data[features])),
+        x=np.squeeze(train_data[features]),
         y=train_data[targets[0]],
         label="train",
     )
     sns.scatterplot(
-        x=np.squeeze(minmax(test_data[features])),
+        x=np.squeeze(test_data[features]),
         y=test_data[targets[0]],
         label="test",
     )
