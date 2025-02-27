@@ -1,7 +1,3 @@
-<p align="center">
-    <img src=https://github.com/numpy/numpy/blob/main/branding/logo/logomark/numpylogoicon.png width="50%" height="50%" />
-</p>
-
 # pymlp :brain:
 A simple library for creating and training fully connected neural networks, built from scratch using only numpy (and minimal pandas).
 
