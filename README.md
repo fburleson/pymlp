@@ -24,7 +24,7 @@ This repo includes the following machine learning models as examples, implemente
 
 ## Installation :gear:
 ```bash
-git clone git@github.com:fburleson/pymlp.git pymlp
+git clone --depth 1 git@github.com:fburleson/pymlp.git pymlp
 cd pymlp
 python3 -m venv .venv
 source .venv/bin/activate 
