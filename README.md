@@ -15,7 +15,7 @@ This project was made to show my understanding of neural networks. It allows bui
 
 ##  Models :building_construction:
 This repo includes the following machine learning models as examples, implemented using pymlp:
--   Very simple linear regression model
+-   Linear regression model
 -   Logistic regression multiclassifier (Ova)
 -   Multilayer perceptron multiclassifier (Softmax)
 
