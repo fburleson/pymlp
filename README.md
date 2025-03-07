@@ -1,8 +1,8 @@
 # pymlp :brain:
-A simple library for creating and training fully connected neural networks, built from scratch using only numpy (and minimal pandas).
+A simple library for creating and training fully connected neural networks, built from scratch with numpy.
 
 ## Introduction :book:
-This project was mainly made to show my understanding of neural networks, machine learning models and algorithms. It allows building different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use, but the API is not it's focus.
+This project was made to show my understanding of neural networks. It building mlp's with different architectures, training models using backpropagation and making predictions using forward propagation. It aims to be modular and easy to use, but the API is not it's focus.
 
 ## Features :sparkles:
 - Fully connected neural network with configurable layers
