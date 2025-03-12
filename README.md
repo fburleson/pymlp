@@ -23,18 +23,28 @@ This repo includes the following machine learning models as examples, implemente
 - Python >= 3.10
 
 ## Installation :gear:
+### Linux
 ```bash
-git clone --depth 1 git@github.com:fburleson/pymlp.git pymlp
+git clone --depth 1 https://github.com/fburleson/pymlp.git pymlp
 cd pymlp
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate 
+pip install -e .
+pytest
+```
+### Windows
+```bash
+git clone --depth 1 https://github.com/fburleson/pymlp.git pymlp
+cd pymlp
+python -m venv .venv
+.\.venv\Scripts\activate 
 pip install -e .
 pytest
 ```
 
 ## Usage :computer:
 ```bash
-python3 run.py
+python run.py
 ```
 
 ## Multilayer perceptron example

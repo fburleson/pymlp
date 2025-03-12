@@ -37,7 +37,7 @@ def main():
             if "-i" in args:
                 print(pd.read_csv(models[args[0]][0][1]).reset_index(drop=True).head())
                 continue
-            cmd: list[str] = ["python3", *models[args[0]][0]]
+            cmd: list[str] = ["python", *models[args[0]][0]]
             cmd.append("-v") if "-v" in args else ""
             print(f"Training {args[0]}...")
             subprocess.run(cmd)
