@@ -46,6 +46,10 @@ pytest
 ```bash
 python run.py
 ```
+or
+```bash
+python3 run.py
+```
 
 ## Multilayer perceptron example
 ```python
